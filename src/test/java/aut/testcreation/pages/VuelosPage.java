@@ -4,6 +4,7 @@ import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class VuelosPage extends SeleniumWrapper {
     public VuelosPage(WebDriver driver) {
@@ -11,9 +12,7 @@ public class VuelosPage extends SeleniumWrapper {
     }
 
     //locators
-    // By origenVuelos= By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Origen']");
 
-    // By destinoVuelos = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Destino']");
 
     By campoOrigen = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Origen']");
     By campoDestino = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Destino']");
@@ -42,22 +41,30 @@ public class VuelosPage extends SeleniumWrapper {
     //métodos
 
 
-    public void completarFormularioBusqueda(String origen) {
+    public void completarOrigenDestino (String origen, String destino) {
 
 
         WebElement elementoCampoOrigen = driver.findElement(campoOrigen);
-        // WebElement elementoCampoDestino = driver.findElement(campoDestino);
+        WebElement elementoCampoDestino = driver.findElement(campoDestino);
 
 
         if (!elementoCampoOrigen.getAttribute("value").isEmpty()) {
             click(elementoCampoOrigen);
-            write(esperarPorElemento(campoOrigen),origen);
+            write(origen,campoOrigen);
+            write(destino,campoDestino);
         } else {
             elementoCampoOrigen.clear();
+            elementoCampoDestino.clear();
             click(elementoCampoOrigen);
-            write(String.valueOf(esperarPorElemento(campoOrigen)),origen);
+            write(origen,campoOrigen);
+            click(elementoCampoDestino);
+            write(origen,campoDestino);
+
         }
     }
+
+
+
 
 
 }

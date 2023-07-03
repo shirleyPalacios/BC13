@@ -46,11 +46,9 @@ public class Tests {
     public void CP001_hoteles_formulario_incorrecto_mail_vacio( ) {
 
         driver.findElement(By.xpath("//button[contains(text(),'Rechazar todo')]")).click();
-        vuelosPage.completarFormularioBusqueda("Brazil");
-
+        vuelosPage.completarOrigenDestino("Brazil","Barcelona");
 
     }
-
 
 
 }
