@@ -52,9 +52,6 @@ public class SeleniumWrapper {
         driver.findElement(locator).click();
     }
 
-    public void click(WebElement elemento){
-        elemento.click();
-    }
 
     public Boolean isDisplayed(By locator) {
         try {
@@ -87,9 +84,9 @@ public class SeleniumWrapper {
         return driver.getTitle();
     }
 
-    public WebElement esperarPorElemento(By localizador) {
+    public String esperarPorElemento(By localizador) {
         espera = new WebDriverWait(this.driver, 30);//se crea el objeto espera y lo instancio a traves de la clase WebDriverWait, la clase recibe el driver como parametro y una unidad de tiempo
-        return espera.until(ExpectedConditions.presenceOfElementLocated(localizador));
+        return String.valueOf(espera.until(ExpectedConditions.presenceOfElementLocated(localizador)));
     }
 
     public void seleccionarComboBoxPorTextoVisible(By localizador,String textoVisible) {

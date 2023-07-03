@@ -5,12 +5,11 @@ import aut.testcreation.pages.TrenesPage;
 import aut.testcreation.pages.VuelosPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.openqa.selenium.By;
 public class Tests {
 
     //esta clase tiene que llamar a las Pages
@@ -42,10 +41,10 @@ public class Tests {
         Assertions.assertEquals("...", ...);
     }*/
 
-  //public void CP001_hoteles_() {
-      //vuelosPage.cerrarCookies();
-     // vuelosPage.completarFormularioBusqueda("Brasil", "Buenos Aires", "jue, 27 jul", "lun, 7 ago");
-      //hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
-     // Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
+    public void CP001_hoteles_formulario_incorrecto_mail_vacio( ) {
+        driver.findElement(By.xpath("//button[contains(text(),'Rechazar todo')]")).click();
+        vuelosPage.completarOrigenDestino("Brazil","Barcelona");
+
     }
 }
+
