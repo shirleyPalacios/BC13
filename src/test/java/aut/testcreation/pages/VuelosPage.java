@@ -63,7 +63,11 @@ public class VuelosPage extends SeleniumWrapper {
         }
     }
 
-
+    public void completarFechaIdaVuelos (By localizador,String value){
+        WebElement ddlMes = driver.findElement(localizador);
+        Select selectorMes = new Select(ddlMes);
+        selectorMes.selectByValue(value);
+    }
 
 
 
