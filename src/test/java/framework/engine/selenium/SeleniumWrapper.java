@@ -4,12 +4,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
 public class SeleniumWrapper {
 
     private final WebDriver driver;
+
+    protected WebDriverWait espera; //nos ayuda a llevar una estructura de manejo de esperas de los elementos web, permite manejar las esperas
 
     //Constructor Base
     public SeleniumWrapper(WebDriver driver){
@@ -29,15 +33,21 @@ public class SeleniumWrapper {
         return driver.findElement(locator).getText();
     }
 
+    //metodo write: se utiliza para encontrar un elemento de la interfaz de usuario utilizando un locator y luego ingresar o escribir un texto específico en ese elemento
     public void write(String inputText, By locator){
         driver.findElement(locator).sendKeys(inputText);
     }
+    // metodo sendKeyw: se utiliza para encontrar un elemento de la interfaz de usuario utilizando un locator y luego enviar una tecla específica al elemento
     public void sendKeys(Keys key, By locator){
         driver.findElement(locator).sendKeys(key);
     }
 
     public void click(By locator){
         driver.findElement(locator).click();
+    }
+
+    public void click(WebElement elemento){
+        driver.findElement(elemento).click();
     }
 
     public Boolean isDisplayed(By locator) {
@@ -71,4 +81,16 @@ public class SeleniumWrapper {
         return driver.getTitle();
     }
 
+    public WebElement esperarPorElemento(By localizador) {
+        espera = new WebDriverWait(this.driver, 30);//se crea el objeto espera y lo instancio a traves de la clase WebDriverWait, la clase recibe el driver como parametro y una unidad de tiempo
+        return espera.until(ExpectedConditions.presenceOfElementLocated(localizador));
+    }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(WebDriver driver) {
+        this.driver = driver;
+    }
 }
