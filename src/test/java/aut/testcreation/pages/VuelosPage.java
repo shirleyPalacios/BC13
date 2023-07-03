@@ -22,6 +22,21 @@ public class VuelosPage extends SeleniumWrapper {
     By pasajeroVuelos = By.xpath("");
     By btnBuscar = By.xpath("//button[.='Buscar']");
 
+    By btnTrenes = By.xpath("");
+
+    By btnHoteles = By.xpath("");
+
+
+
+
+    //métodos
+
+    public void irATrenes() {
+        click(esperarPorElemento(btnTrenes));
+    }
+    public void irAHoteles() {
+        click(esperarPorElemento(btnHoteles));
+    }
 
 
 }

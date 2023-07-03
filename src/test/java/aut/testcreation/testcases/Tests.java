@@ -37,9 +37,45 @@ public class Tests {
     }
 
     @Test
-        /*public void CP001_formulario_incorrecto_mail_vacio(){
-            //ejemplo de test
-            Assertions.assertEquals("...", ...);
-        }*/
+    /*public void CP001_formulario_incorrecto_mail_vacio(){
+        //ejemplo de test
+        Assertions.assertEquals("...", ...);
+    }*/
+
+    public void CP001_hoteles_formulario_incorrecto_mail_vacio() {
+        vuelosPage.irAHoteles();
+        hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
+        Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
+    }
+
+    public void CP002_hoteles_formulario_incorrecto_mail_vacio() {
+        vuelosPage.irAHoteles();
+        hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
+        Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
+    }
+
+    public void CP003_hoteles_formulario_incorrecto_mail_vacio() {
+        vuelosPage.irAHoteles();
+        hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
+        Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
+    }
+
+    public void CP004_hoteles_formulario_incorrecto_mail_vacio() {
+        vuelosPage.irAHoteles();
+        hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
+        Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
+    }
+
+    public void CP005_hoteles_formulario_incorrecto_mail_vacio() {
+        vuelosPage.irAHoteles();
+        hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
+        Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
+    }
+
+    public void CP006_hoteles_formulario_incorrecto_mail_vacio() {
+        vuelosPage.irAHoteles();
+        hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
+        Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
+    }
 }
 
