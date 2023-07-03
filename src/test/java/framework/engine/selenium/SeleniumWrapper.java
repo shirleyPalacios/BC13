@@ -29,9 +29,11 @@ public class SeleniumWrapper {
         return driver.findElement(locator).getText();
     }
 
+    //metodo write: se utiliza para encontrar un elemento de la interfaz de usuario utilizando un locator y luego ingresar o escribir un texto específico en ese elemento
     public void write(String inputText, By locator){
         driver.findElement(locator).sendKeys(inputText);
     }
+    // metodo sendKeyw: se utiliza para encontrar un elemento de la interfaz de usuario utilizando un locator y luego enviar una tecla específica al elemento
     public void sendKeys(Keys key, By locator){
         driver.findElement(locator).sendKeys(key);
     }
@@ -69,6 +71,14 @@ public class SeleniumWrapper {
 
     public String getUrlTitle(){
         return driver.getTitle();
+    }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(WebDriver driver) {
+        this.driver = driver;
     }
 
 }
