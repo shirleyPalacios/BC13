@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SeleniumWrapper {
 
-    private WebDriver driver;
+    public WebDriver driver;
 
 
     protected WebDriverWait espera; //nos ayuda a llevar una estructura de manejo de esperas de los elementos web, permite manejar las esperas
