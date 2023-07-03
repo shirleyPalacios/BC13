@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SeleniumWrapper {
 
-    private final WebDriver driver;
+    public WebDriver driver;
 
     protected WebDriverWait espera; //nos ayuda a llevar una estructura de manejo de esperas de los elementos web, permite manejar las esperas
 
@@ -47,7 +47,7 @@ public class SeleniumWrapper {
     }
 
     public void click(WebElement elemento){
-        driver.findElement(elemento).click();
+       elemento.click();
     }
 
     public Boolean isDisplayed(By locator) {
@@ -81,9 +81,9 @@ public class SeleniumWrapper {
         return driver.getTitle();
     }
 
-    public WebElement esperarPorElemento(By localizador) {
+    public String esperarPorElemento(By localizador) {
         espera = new WebDriverWait(this.driver, 30);//se crea el objeto espera y lo instancio a traves de la clase WebDriverWait, la clase recibe el driver como parametro y una unidad de tiempo
-        return espera.until(ExpectedConditions.presenceOfElementLocated(localizador));
+        return String.valueOf(espera.until(ExpectedConditions.presenceOfElementLocated(localizador)));
     }
 
     public WebDriver getDriver() {

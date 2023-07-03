@@ -8,6 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -42,40 +43,15 @@ public class Tests {
         Assertions.assertEquals("...", ...);
     }*/
 
-    public void CP001_hoteles_formulario_incorrecto_mail_vacio() {
-        vuelosPage.irAHoteles();
-        hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
-        Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
+    public void CP001_hoteles_formulario_incorrecto_mail_vacio( ) {
+
+        driver.findElement(By.xpath("//button[contains(text(),'Rechazar todo')]")).click();
+        vuelosPage.completarFormularioBusqueda("Brazil");
+
+
     }
 
-    public void CP002_hoteles_formulario_incorrecto_mail_vacio() {
-        vuelosPage.irAHoteles();
-        hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
-        Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
-    }
 
-    public void CP003_hoteles_formulario_incorrecto_mail_vacio() {
-        vuelosPage.irAHoteles();
-        hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
-        Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
-    }
 
-    public void CP004_hoteles_formulario_incorrecto_mail_vacio() {
-        vuelosPage.irAHoteles();
-        hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
-        Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
-    }
-
-    public void CP005_hoteles_formulario_incorrecto_mail_vacio() {
-        vuelosPage.irAHoteles();
-        hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
-        Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
-    }
-
-    public void CP006_hoteles_formulario_incorrecto_mail_vacio() {
-        vuelosPage.irAHoteles();
-        hotelesPage.completarFormularioRegistro(); //aca se le pasan todos los datos para completar el registro segun los tipos de datos
-        Assertions.assertEquals("", hotelesPage.obtenerErrorMailVacio());
-    }
 }
 

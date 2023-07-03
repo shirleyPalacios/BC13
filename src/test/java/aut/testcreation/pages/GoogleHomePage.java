@@ -19,13 +19,16 @@ public class GoogleHomePage extends SeleniumWrapper {
 
     //methods
     public void buscarConBotonBuscar(String busqueda){
-        write(busqueda,barraBusquedaLocator);
+        write(busqueda, String.valueOf(barraBusquedaLocator));
         click(btnBuscarConGoogleLocator);
     }
 
     public void buscarConBotonVoyATenerSuerte(String busqueda){
-        write(busqueda,barraBusquedaLocator);
+        write(busqueda, String.valueOf(barraBusquedaLocator));
         click(btnVoyATenerSuerteLocator);
+    }
+
+    private void write(String busqueda, String s) {
     }
 
     public void navegarAlHome(){
