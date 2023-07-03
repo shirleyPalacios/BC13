@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SeleniumWrapper {
 
-    private final WebDriver driver;
+    private WebDriver driver;
 
     protected WebDriverWait espera; //nos ayuda a llevar una estructura de manejo de esperas de los elementos web, permite manejar las esperas
 
@@ -47,7 +47,7 @@ public class SeleniumWrapper {
     }
 
     public void click(WebElement elemento){
-        driver.findElement(elemento).click();
+        driver.findElement((By) elemento).click();
     }
 
     public Boolean isDisplayed(By locator) {
