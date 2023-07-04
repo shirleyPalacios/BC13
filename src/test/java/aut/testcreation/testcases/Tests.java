@@ -38,18 +38,18 @@ public class Tests {
     }
 
     @Test
-    /*public void CP001_formulario_incorrecto_mail_vacio(){
-        //ejemplo de test
-        Assertions.assertEquals("...", ...);
-    }*/
+/*public void CP001_formulario_incorrecto_mail_vacio(){
+//ejemplo de test
+Assertions.assertEquals("...", ...);
+}*/
 
-    public void CP001_hoteles_formulario_incorrecto_mail_vacio( ) {
-
+    public void CP001_hoteles_formulario_incorrecto_mail_vacio() {
         driver.findElement(By.xpath("//button[contains(text(),'Rechazar todo')]")).click();
-        vuelosPage.completarOrigenDestino("Brazil","Barcelona");
+        vuelosPage.completarOrigenDestino("Sao Paulo", "Buenos Aires");
+        vuelosPage.ingresarFechaIda();
+        vuelosPage.ingresarFechaVuelta();
 
     }
 
 
 }
-

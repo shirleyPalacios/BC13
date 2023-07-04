@@ -6,39 +6,30 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
+
 public class VuelosPage extends SeleniumWrapper {
     public VuelosPage(WebDriver driver) {
         super(driver);
     }
 
-    //locators
+//locators
 
 
     By campoOrigen = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Origen']");
     By campoDestino = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Destino']");
 
-
-    By locatorCerrarCookies = By.xpath("//button[contains(text(),'Rechazar todo')]");
-
-
-    By vuelosBtnIdaVuelta = By.xpath("//div[contains(text(),'Ida y vuelta')]");
-    By vuelosBtnSoloIda = By.xpath("//div[contains(text(),'Solo ida')]");  //
-    By vuelosBtnMultidestino = By.xpath("//a[contains(text(),'Multidestino')]"); //
-    By btnClase = By.xpath("//button[.='Cualquier clase']");
-    By btnMetodoMasEco = By.xpath("//a[contains(text(),'Multidestino')]");
+    By selectorCalendario = By.xpath("//button[@aria-label='Fecha de ida']");
+    By selectorCalendario2 = By.xpath("//button[@aria-label='Fecha de vuelta' and @class= 'd-1ol7ckz']");
+    By selectorFechaIda = By.xpath("//button[.='15']");
+    By selectorFechaVuelta = By.xpath("//button[.='20']");
 
 
-    By fechaIdaVuelos = By.xpath("");
-    By fechaVueltaVuelos = By.xpath("");
-    By pasajeroVuelos = By.xpath("");
-    By btnBuscar = By.xpath("//button[.='Buscar']");
-
-    By btnTrenes = By.xpath("");
-
-    By btnHoteles = By.xpath("");
 
 
-    //métodos
+
+//métodos
 
 
     public void completarOrigenDestino (String origen, String destino) {
@@ -58,24 +49,23 @@ public class VuelosPage extends SeleniumWrapper {
             click(elementoCampoOrigen);
             write(origen,campoOrigen);
             click(elementoCampoDestino);
-            write(origen,campoDestino);
+            write(destino,campoDestino);
 
         }
+    }
+
+    public void ingresarFechaIda() {
+        click(selectorCalendario);
+        click(selectorFechaIda);
+    }
+
+    public void ingresarFechaVuelta() {
+        click(selectorCalendario2);
+        click(selectorFechaVuelta);
     }
 
 
 
 
-
 }
-
-
-
-
-
-
-
-
-
-
 
