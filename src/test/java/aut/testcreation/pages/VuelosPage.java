@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
+
 public class VuelosPage extends SeleniumWrapper {
     public VuelosPage(WebDriver driver) {
         super(driver);
@@ -17,25 +20,13 @@ public class VuelosPage extends SeleniumWrapper {
     By campoOrigen = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Origen']");
     By campoDestino = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Destino']");
 
+    By selectorCalendarioIda = By.xpath("//button[@aria-label='Fecha de ida']");
+    By selectorFechaIda = By.xpath("//button[.='15']");
 
-    By locatorCerrarCookies = By.xpath("//button[contains(text(),'Rechazar todo')]");
+    By selectorCalendarioVuelta = By.xpath("//button[@aria-label='Fecha de vuelta']");
 
+    By selectorFechaVuelta = By.xpath("//button[.='26']");
 
-    By vuelosBtnIdaVuelta = By.xpath("//div[contains(text(),'Ida y vuelta')]");
-    By vuelosBtnSoloIda = By.xpath("//div[contains(text(),'Solo ida')]");  //
-    By vuelosBtnMultidestino = By.xpath("//a[contains(text(),'Multidestino')]"); //
-    By btnClase = By.xpath("//button[.='Cualquier clase']");
-    By btnMetodoMasEco = By.xpath("//a[contains(text(),'Multidestino')]");
-
-
-    By fechaIdaVuelos = By.xpath("");
-    By fechaVueltaVuelos = By.xpath("");
-    By pasajeroVuelos = By.xpath("");
-    By btnBuscar = By.xpath("//button[.='Buscar']");
-
-    By btnTrenes = By.xpath("");
-
-    By btnHoteles = By.xpath("");
 
 
     //métodos
@@ -58,20 +49,23 @@ public class VuelosPage extends SeleniumWrapper {
             click(elementoCampoOrigen);
             write(origen,campoOrigen);
             click(elementoCampoDestino);
-            write(origen,campoDestino);
+            write(destino,campoDestino);
 
         }
     }
 
-    public void completarFechaIdaVuelos (By localizador,String value){
-        WebElement ddlMes = driver.findElement(localizador);
-        Select selectorMes = new Select(ddlMes);
-        selectorMes.selectByValue(value);
+    public void ingresarFechaIda() {
+        click(selectorCalendarioIda);
+        click(selectorFechaIda);
+    }
+
+    public void ingresarFechaVuelta() {
+        click(selectorCalendarioVuelta);
+        click(selectorFechaVuelta);
     }
 
 
-
-}
+ }
 
 
 

@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -81,9 +82,9 @@ public class SeleniumWrapper {
         return driver.getTitle();
     }
 
-    public String esperarPorElemento(By localizador) {
-        espera = new WebDriverWait(this.driver, 30);//se crea el objeto espera y lo instancio a traves de la clase WebDriverWait, la clase recibe el driver como parametro y una unidad de tiempo
-        return String.valueOf(espera.until(ExpectedConditions.presenceOfElementLocated(localizador)));
+    public WebElement esperarPorElemento(By locator){
+        espera = new WebDriverWait(this.driver,30);
+        return espera.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
     public WebDriver getDriver() {
@@ -93,4 +94,7 @@ public class SeleniumWrapper {
     public void setDriver(WebDriver driver) {
         this.driver = driver;
     }
-}
+
+
+
+     }
