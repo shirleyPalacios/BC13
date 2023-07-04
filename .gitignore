@@ -9,6 +9,7 @@ cucumber-report.json
 *.ear
 *.nar
 hs_err_pid*
+README.md
 
 ##############################
 ## Maven

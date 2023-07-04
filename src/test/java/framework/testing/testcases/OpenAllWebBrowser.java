@@ -46,5 +46,12 @@ public class OpenAllWebBrowser {
 
     }
 
+    @Test
+
+     public void CP_001 (){
+
+
+    }
+
 
 }
