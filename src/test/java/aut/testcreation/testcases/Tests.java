@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
+
 public class Tests {
 
     //esta clase tiene que llamar a las Pages
@@ -41,10 +42,10 @@ public class Tests {
         Assertions.assertEquals("...", ...);
     }*/
 
-    public void CP001_hoteles_formulario_incorrecto_mail_vacio( ) {
+    public void CP001_hoteles_formulario_incorrecto_mail_vacio() {
         driver.findElement(By.xpath("//button[contains(text(),'Rechazar todo')]")).click();
-        vuelosPage.completarOrigenDestino("Brazil","Barcelona");
-
+      //vuelosPage.completarOrigenDestino("Sao Paulo", "Buenos Aires");
+        vuelosPage.ingresarFechaIda();
     }
 }
 

@@ -52,6 +52,10 @@ public class SeleniumWrapper {
         driver.findElement(locator).click();
     }
 
+    public void click(WebElement elemento){
+        elemento.click();
+    }
+
 
     public Boolean isDisplayed(By locator) {
         try {
@@ -93,6 +97,12 @@ public class SeleniumWrapper {
         WebElement fechaViaje = driver.findElement(localizador);
         Select fecha = new Select(fechaViaje);
         fecha.selectByVisibleText(textoVisible);
+    }
+
+    public void seleccionarComboBoxPorValue(By localizador,String value) {
+        WebElement ddlMes = driver.findElement(localizador);
+        Select selectorMes = new Select(ddlMes);
+        selectorMes.selectByValue(value);
     }
 
     public WebDriver getDriver() {

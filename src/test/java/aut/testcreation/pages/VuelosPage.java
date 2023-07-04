@@ -12,60 +12,52 @@ public class VuelosPage extends SeleniumWrapper {
     }
 
     //locators
-
-
-    By campoOrigen = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Origen']");
-    By campoDestino = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Destino']");
-
+    By locatorOrigen = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Origen']");
+    By locatorDestino = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Destino']");
 
     By locatorCerrarCookies = By.xpath("//button[contains(text(),'Rechazar todo')]");
 
+    By locatorPasajeros = By.xpath("");
+    By locatorBtnBuscar = By.xpath("//button[.='Buscar']");
 
-    By vuelosBtnIdaVuelta = By.xpath("//div[contains(text(),'Ida y vuelta')]");
-    By vuelosBtnSoloIda = By.xpath("//div[contains(text(),'Solo ida')]");  //
-    By vuelosBtnMultidestino = By.xpath("//a[contains(text(),'Multidestino')]"); //
-    By btnClase = By.xpath("//button[.='Cualquier clase']");
-    By btnMetodoMasEco = By.xpath("//a[contains(text(),'Multidestino')]");
+    By locatorCalendario = By.xpath("//button[@aria-label='Fecha de ida']");
 
-    By origenVuelos = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Origen']");
-    By destinoVuelos = By.xpath("//input[@placeholder='Ciudad o aeropuerto' and @aria-label='Destino']");
+    By locatorFechaIda = By.xpath("//button[.='10']");
 
-    By fechaIdaVuelos = By.xpath("//button[@aria-label='Fecha de ida']");
-    By fechaVueltaVuelos = By.xpath("//button[@aria-label='Fecha de vuelta']");
-
-    By pasajeroVuelos = By.xpath("");
-    By btnBuscar = By.xpath("//button[.='Buscar']");
-
-    By btnTrenes = By.xpath("");
-
-    By btnHoteles = By.xpath("");
-
+    By locatorFechaVuelta = By.xpath("//button[.='19']");
 
 
 
     //métodos
 
-    public void completarOrigenDestino (String origen, String destino) {
+    public void completarOrigenDestino(String origen, String destino) {
 
+        WebElement elementoCampoOrigen = driver.findElement(locatorOrigen);
+        WebElement elementoCampoDestino = driver.findElement(locatorDestino);
 
-        WebElement elementoCampoOrigen = driver.findElement(campoOrigen);
-        WebElement elementoCampoDestino = driver.findElement(campoDestino);
-
-
-        if (!elementoCampoOrigen.getAttribute("value").isEmpty()) {
+        if (elementoCampoOrigen.getAttribute("value").isEmpty()) {
             click(elementoCampoOrigen);
-            write(origen,campoOrigen);
-            write(destino,campoDestino);
+            write(origen, locatorOrigen);
+            write(destino, locatorDestino);
         } else {
             elementoCampoOrigen.clear();
             elementoCampoDestino.clear();
             click(elementoCampoOrigen);
-            write(origen,campoOrigen);
+            write(origen, locatorOrigen);
             click(elementoCampoDestino);
-            write(origen,campoDestino);
-
+            write(destino, locatorDestino);
         }
     }
+
+    public void ingresarFechaIda() {
+        click(locatorCalendario);
+        click(locatorFechaIda);
+        click(locatorFechaVuelta);
+    }
+
+
+
+
 }
 
 
