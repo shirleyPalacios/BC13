@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -37,6 +38,11 @@ public class SeleniumWrapper {
     public void write(String inputText, By locator){
         driver.findElement(locator).sendKeys(inputText);
     }
+
+    public void write(String inputText, WebElement elemento){
+        elemento.sendKeys(inputText);
+    }
+
     // metodo sendKeyw: se utiliza para encontrar un elemento de la interfaz de usuario utilizando un locator y luego enviar una tecla específica al elemento
     public void sendKeys(Keys key, By locator){
         driver.findElement(locator).sendKeys(key);
@@ -47,8 +53,9 @@ public class SeleniumWrapper {
     }
 
     public void click(WebElement elemento){
-       elemento.click();
+        elemento.click();
     }
+
 
     public Boolean isDisplayed(By locator) {
         try {
@@ -84,6 +91,18 @@ public class SeleniumWrapper {
     public String esperarPorElemento(By localizador) {
         espera = new WebDriverWait(this.driver, 30);//se crea el objeto espera y lo instancio a traves de la clase WebDriverWait, la clase recibe el driver como parametro y una unidad de tiempo
         return String.valueOf(espera.until(ExpectedConditions.presenceOfElementLocated(localizador)));
+    }
+
+    public void seleccionarComboBoxPorTextoVisible(By localizador,String textoVisible) {
+        WebElement fechaViaje = driver.findElement(localizador);
+        Select fecha = new Select(fechaViaje);
+        fecha.selectByVisibleText(textoVisible);
+    }
+
+    public void seleccionarComboBoxPorValue(By localizador,String value) {
+        WebElement ddlMes = driver.findElement(localizador);
+        Select selectorMes = new Select(ddlMes);
+        selectorMes.selectByValue(value);
     }
 
     public WebDriver getDriver() {
