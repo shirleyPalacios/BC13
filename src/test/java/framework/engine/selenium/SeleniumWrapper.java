@@ -38,6 +38,11 @@ public class SeleniumWrapper {
     public void write(String inputText, By locator){
         driver.findElement(locator).sendKeys(inputText);
     }
+
+    public void write(String inputText, WebElement elemento){
+        elemento.sendKeys(inputText);
+    }
+
     // metodo sendKeyw: se utiliza para encontrar un elemento de la interfaz de usuario utilizando un locator y luego enviar una tecla específica al elemento
     public void sendKeys(Keys key, By locator){
         driver.findElement(locator).sendKeys(key);
@@ -48,8 +53,9 @@ public class SeleniumWrapper {
     }
 
     public void click(WebElement elemento){
-       elemento.click();
+        elemento.click();
     }
+
 
     public Boolean isDisplayed(By locator) {
         try {
@@ -85,6 +91,18 @@ public class SeleniumWrapper {
     public WebElement esperarPorElemento(By locator){
         espera = new WebDriverWait(this.driver,30);
         return espera.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+
+    public void seleccionarComboBoxPorTextoVisible(By localizador,String textoVisible) {
+        WebElement fechaViaje = driver.findElement(localizador);
+        Select fecha = new Select(fechaViaje);
+        fecha.selectByVisibleText(textoVisible);
+    }
+
+    public void seleccionarComboBoxPorValue(By localizador,String value) {
+        WebElement ddlMes = driver.findElement(localizador);
+        Select selectorMes = new Select(ddlMes);
+        selectorMes.selectByValue(value);
     }
 
     public WebDriver getDriver() {
