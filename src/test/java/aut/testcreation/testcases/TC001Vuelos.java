@@ -1,5 +1,4 @@
 package aut.testcreation.testcases;
-
 import aut.testcreation.pages.HotelesPage;
 import aut.testcreation.pages.TrenesPage;
 import aut.testcreation.pages.VuelosPage;
@@ -11,15 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
-
-public class Tests {
-
-    //esta clase tiene que llamar a las Pages
+public class TC001Vuelos {
     private VuelosPage vuelosPage;
     private TrenesPage trenesPage;
     private HotelesPage hotelesPage;
-
-    //instanciar el driver
     private WebDriver driver;
 
     @BeforeEach
@@ -39,21 +33,12 @@ public class Tests {
 
     @SneakyThrows
     @Test
-/*public void CP001_formulario_incorrecto_mail_vacio(){
-//ejemplo de test
-Assertions.assertEquals("...", ...);
-}*/
 
     public void CP001_hoteles_formulario_incorrecto_mail_vacio() {
         driver.findElement(By.xpath("//button[contains(text(),'Rechazar todo')]")).click();
         vuelosPage.completarOrigen("Sao Paulo (SAO) - Todos los aeropuertos, Brasil");
-       // Thread.sleep(1500);
         vuelosPage.completarDestino("Barcelona (BCN) - Todos los aeropuertos, España");
         Thread.sleep(1500);
-      //  vuelosPage.completarOrigenDestino("Sao Paulo (SAO), Brasil", "Montevideo (MVD) - Carrasco, Uruguay");
-        //vuelosPage.limpiarCampos(true, false);
-       // vuelosPage.agregarOrigen("Santiago (SCL)");
-       // vuelosPage.agregarDestino("Buenos Aires (BUE)");
         vuelosPage.ingresarFechaIda();
         Thread.sleep(1500);
         vuelosPage.realizarBusqueda();
