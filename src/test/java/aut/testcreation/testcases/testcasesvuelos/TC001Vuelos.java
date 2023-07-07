@@ -1,6 +1,4 @@
-package aut.testcreation.testcases;
-import aut.testcreation.pages.HotelesPage;
-import aut.testcreation.pages.TrenesPage;
+package aut.testcreation.testcases.testcasesvuelos;
 import aut.testcreation.pages.VuelosPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.SneakyThrows;
@@ -9,11 +7,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.By;
+
+import java.util.concurrent.TimeUnit;
+
 public class TC001Vuelos {
     private VuelosPage vuelosPage;
-    private TrenesPage trenesPage;
-    private HotelesPage hotelesPage;
     private WebDriver driver;
 
     @BeforeEach
@@ -21,26 +19,34 @@ public class TC001Vuelos {
         WebDriverManager.chromedriver().setup(); //setear el driver
         driver = new ChromeDriver();
         vuelosPage = new VuelosPage(driver);
-        trenesPage = new TrenesPage(vuelosPage.getDriver());
-        hotelesPage = new HotelesPage(vuelosPage.getDriver());
         vuelosPage.navigateTo("https://www.rumbo.es/");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterEach
     public void postTests() {
 
+        driver.close();
     }
 
     @SneakyThrows
     @Test
 
-    public void CP001_hoteles_formulario_incorrecto_mail_vacio() {
-        driver.findElement(By.xpath("//button[contains(text(),'Rechazar todo')]")).click();
+    public void TC0001_BusquedaDeVuelosConResultados() {
+        vuelosPage.cerrarCookies();
+        vuelosPage.clickSoloIda();
+        vuelosPage.esperarXSegundos(3);
         vuelosPage.completarOrigen("Sao Paulo (SAO) - Todos los aeropuertos, Brasil");
+        vuelosPage.esperarXSegundos(3);
         vuelosPage.completarDestino("Barcelona (BCN) - Todos los aeropuertos, España");
-        Thread.sleep(1500);
+        vuelosPage.esperarXSegundos(3);
         vuelosPage.ingresarFechaIda();
-        Thread.sleep(1500);
+        vuelosPage.esperarXSegundos(3);
         vuelosPage.realizarBusqueda();
+
     }
 }
+
+//roro
