@@ -1,7 +1,5 @@
 package aut.testcreation.testcases;
 
-import aut.testcreation.pages.HotelesPage;
-import aut.testcreation.pages.TrenesPage;
 import aut.testcreation.pages.VuelosPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.SneakyThrows;
